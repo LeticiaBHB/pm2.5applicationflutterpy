@@ -251,17 +251,23 @@ class _DadosPageState extends State<DadosPage> {
           scrollDirection: Axis.vertical,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: DataTable(
-              columns: csvTable[0].map<DataColumn>((column) {
-                return DataColumn(label: Text(column.toString()));
-              }).toList(),
-              rows: csvTable.sublist(1).map<DataRow>((row) {
-                return DataRow(
-                  cells: row.map<DataCell>((cell) {
-                    return DataCell(Text(cell.toString()));
-                  }).toList(),
-                );
-              }).toList(),
+            child: SfDataGrid(
+              source: EmployeeDataSource(csvTable),
+              columnWidthMode: ColumnWidthMode.fill,
+              columns: <GridColumn>[
+                for (var column in csvTable[0])
+                  GridColumn(
+                    columnName: column.toString(),
+                    label: Container(
+                      padding: EdgeInsets.all(8.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        column.toString(),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         ),
@@ -270,3 +276,33 @@ class _DadosPageState extends State<DadosPage> {
   }
 }
 
+class EmployeeDataSource extends DataGridSource {
+  EmployeeDataSource(this.data) {
+    _employeeData = data.sublist(1).map<DataGridRow>((row) {
+      return DataGridRow(
+        cells: row.map<DataGridCell>((cell) {
+          return DataGridCell<dynamic>(
+              columnName: row.indexOf(cell).toString(), value: cell);
+        }).toList(),
+      );
+    }).toList();
+  }
+
+  final List<List<dynamic>> data;
+  List<DataGridRow> _employeeData = [];
+
+  @override
+  List<DataGridRow> get rows => _employeeData;
+
+  @override
+  DataGridRowAdapter buildRow(DataGridRow row) {
+    return DataGridRowAdapter(
+        cells: row.getCells().map<Widget>((e) {
+          return Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(8.0),
+            child: Text(e.value.toString()),
+          );
+        }).toList());
+  }
+}
