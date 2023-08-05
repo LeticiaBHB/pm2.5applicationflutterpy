@@ -5,10 +5,7 @@ The data was taken from the website: https://www.ceip.at/the-emep-grid/gridded-e
 Welcome to Project! Here's a brief overview of what the project does.
 The project is being developed in dart, flutter and python. With the intention of uniting the three in the project.
 
-##Author 
-
-Leticia Heloisa Bini Haiduk
-
+Author Leticia Heloisa Bini Haiduk
 
 ##Contribution
 
