@@ -9,7 +9,7 @@ Author Leticia Heloisa Bini Haiduk
 ##Screenshots
 | Home Page | Home Page | Page Dados |
 |----------|----------|----------|
-| ![App Screenshot](screenshots/home1.png) | ![App Screenshot](screenshots/home2.png) | ![App Screenshot](screenshots/dados.png) |
+| ![App Screenshot](screenshots/home.jpg) | ![App Screenshot](screenshots/home1.jpg) | ![App Screenshot](screenshots/dados.jpg) |
 
 
 ##Contribution
