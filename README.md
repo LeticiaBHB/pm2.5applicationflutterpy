@@ -6,6 +6,11 @@ Welcome to Project! Here's a brief overview of what the project does.
 The project is being developed in dart, flutter and python. With the intention of uniting the three in the project.
 
 Author Leticia Heloisa Bini Haiduk
+##Screenshots
+| Home Page | Home Page | Page Dados |
+|----------|----------|----------|
+| ![App Screenshot](screenshots/home1.png) | ![App Screenshot](screenshots/home2.png) | ![App Screenshot](screenshots/dados.png) |
+
 
 ##Contribution
 
